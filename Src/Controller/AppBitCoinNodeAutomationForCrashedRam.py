@@ -1,6 +1,6 @@
 from Src.CrossCuttingConcerns.App import App
 import pyautogui as pk_py_auto_gui
-import time
+import time as pk_time
 
 
 class AppBitCoinNodeAutomationForCrashedRam(App):
@@ -11,17 +11,15 @@ class AppBitCoinNodeAutomationForCrashedRam(App):
         """
         super().__init__("AppBitCoinNodeAutomationForCrashedRam")
 
-
     def load(self):
         """ load Description : (public visibility) :
             Method that is called directly after the creation of the object. Its purpose is to do all loading that is
             beside initial initialization.
         """
         pk_py_auto_gui.PAUSE = 1
-        pk_py_auto_gui.FAILSAFE = True
+        pk_py_auto_gui.FAILSAFE = False
 
-
-    def main(self, param1= None):
+    def main(self, param1=None):
         """ main Description : (public visibility) :
             The main function of this Applicaiton objet.
         """
@@ -30,13 +28,19 @@ class AppBitCoinNodeAutomationForCrashedRam(App):
 
         try:
             while True:
-                pk_py_auto_gui.moveTo(100, 100, duration=2)
-                # pk_py_auto_gui.typewrite('bitcoin-qt -datadir=/home/pi/SSD_1Tb/bitcoinData')
-                # pk_py_auto_gui.typewrite(['enter']
-                pk_py_auto_gui.moveTo(600, 200, duration=2)
-                # time.sleep(2*60*60)
-                time.sleep(2*60)
-                # pk_py_auto_gui.click(600, 200)
+                pk_py_auto_gui.moveTo(150, 150, duration=2)
+                pk_py_auto_gui.click(150, 150)
+                pk_py_auto_gui.typewrite('bitcoin-qt -datadir=/home/pi/SSD_1Tb/bitcoinData')
+                pk_py_auto_gui.press('enter')
+
+                # pk_time.sleep(2)
+                pk_time.sleep(3 * 60)
+                # pk_time.sleep(2*60*60)
+
+                pk_py_auto_gui.click(150, 150)
+                pk_py_auto_gui.hotkey('ctrl', 'c')
+
+                pk_time.sleep(10 * 60)
 
         except KeyboardInterrupt:
             print('\nDone.')
