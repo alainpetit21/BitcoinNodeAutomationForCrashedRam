@@ -44,8 +44,8 @@ class AppBitCoinNodeAutomationForCrashedRam(App):
 
                 print("\nPerforming sleep(3 * 60)");
                 # pk_time.sleep(2)
-                pk_time.sleep(3 * 60)
-                # pk_time.sleep(2*60*60)
+                # pk_time.sleep(3 * 60)
+                pk_time.sleep(2*60*60)
 
                 print("\nPerforming click(150, 150)");
                 pk_py_auto_gui.click(150, 150)
